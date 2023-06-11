@@ -1,4 +1,4 @@
-// UC 12 - Extend Employee Payroll Class
+// UC 12 - Ability to check the name starts with capital and has at least 3 characters - Use Regex Pattern - Use Try Catch in case of Error
 
 class EmployeePayrollData {
   id;
@@ -28,7 +28,9 @@ class EmployeePayrollData {
   }
 
   set name(name) {
-    this._name = name;
+    let nameRegex = RegExp("^[A-Z]{1}[a-z]{3,}$");
+    if (nameRegex.test(name)) this._name = name;
+    else throw "Name is incorrect!";
   }
 
   get salary() {
@@ -78,8 +80,17 @@ class EmployeePayrollData {
 
 let employeePayrollData = new EmployeePayrollData(1, "Mark", 30000);
 console.log(employeePayrollData.toString());
-employeePayrollData.name = "John";
-console.log(employeePayrollData.toString());
-
+console.log(
+  "---------------------------------------------------------------------------"
+);
+try {
+  employeePayrollData.name = "Yogesh";
+  console.log(employeePayrollData.toString());
+} catch (error) {
+  console.error(error);
+}
+console.log(
+  "---------------------------------------------------------------------------"
+);
 let newEmployeePayrollData = new EmployeePayrollData(1,"Terissa",40000,"F",new Date());
 console.log(newEmployeePayrollData.toString());
