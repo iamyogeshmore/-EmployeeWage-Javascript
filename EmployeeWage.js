@@ -1,6 +1,6 @@
 console.log("Welcome to Employee payroll program");
 
-//UC7 : Array Helper Functions
+//UC7 : Array Helper Functions.
 
 const IS_ABSENT = 0;
 const IS_FULL_TIME = 1;
